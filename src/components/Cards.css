@@ -1,0 +1,12 @@
+.card {
+  background-color: gray;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.cards {
+  width: 90%;
+  margin: 10px;
+  max-width: 400px;
+}
