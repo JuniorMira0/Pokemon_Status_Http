@@ -12,7 +12,7 @@ const Cards = () => {
 
 
   return (
-    <div>
+    <>
       <div className='input-search'>
         <label htmlFor='input-filter'>
           <input
@@ -24,26 +24,50 @@ const Cards = () => {
           </input>
         </label>
       </div>
-      {
-        <div className='card'>
-          { search.length > 0 ? (
+          { search.length > 0 ? <div  className='cards'> {
             filterData.map((code) => (
-              <div className='cards'>
-                <h1>{code.title}</h1>
-                <p>{code.content}</p>
-              </div>
-            ))
-          ) : (
+            <ul>
+                  <li>
+                    <a className="card">
+                      <img src="https://i.imgur.com/oYiTqum.jpg" className="card__image" alt="" />
+                      <div className="card__overlay">
+                        <div className="card__header">
+                          <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+                          <img className="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+                          <div className="card__header-text">
+                            <h3 className="card__title">{code.title}</h3>
+                          </div>
+                        </div>
+                        <p className="card__description">{code.content}</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+            ))}
+            </div> 
+            :
+          <div  className='cards'> {
             data.map((code) => (
-              <div className='cards'>
-                <h1>{code.title}</h1>
-                <p>{code.content}</p>
-              </div>
-            ))
-          ) }
-        </div>
-      }
-    </div>
+            <ul>
+                  <li>
+                    <a className="card">
+                      <img src="https://i.imgur.com/oYiTqum.jpg" className="card__image" alt="" />
+                      <div className="card__overlay">
+                        <div className="card__header">
+                          <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+                          <img className="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+                          <div className="card__header-text">
+                            <h3 className="card__title">{code.title}</h3>
+                          </div>
+                        </div>
+                        <p className="card__description">{code.content}</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+            ))}
+            </div> }
+    </>
   )
 };
 

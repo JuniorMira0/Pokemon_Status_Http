@@ -14,7 +14,6 @@ export const AuthProvider = ({ children }) => {
     search,
     setSearch,
     data,
-    setData,
   };
 
   return (
