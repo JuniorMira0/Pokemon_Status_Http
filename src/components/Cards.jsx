@@ -1,20 +1,46 @@
 import React from 'react';
-import { status } from '../helper/httpStatus';
+import { useAuth } from '../context/auth';
 import './Cards.css';
-import { getPokemon } from '../service/fetchAPI';
 
 
 const Cards = () => {
+  const { data, search, setSearch } = useAuth();
+  
+
+  const filterData = search.length > 0 
+  ? data.filter((list) => list.title.includes(search)) : [];
+
+
   return (
     <div>
+      <div className='input-search'>
+        <label htmlFor='input-filter'>
+          <input
+          type='text'
+          id='input-filter'
+          placeholder='Search status...'
+          onChange={ ({target}) => setSearch(target.value)}
+          value={ search.title}>
+          </input>
+        </label>
+      </div>
       {
         <div className='card'>
-          {status.map((code) => (
-            <div className='cards'>
-              <h1>{code.title}</h1>
-              <p>{code.content}</p>
-            </div>
-          ))}
+          { search.length > 0 ? (
+            filterData.map((code) => (
+              <div className='cards'>
+                <h1>{code.title}</h1>
+                <p>{code.content}</p>
+              </div>
+            ))
+          ) : (
+            data.map((code) => (
+              <div className='cards'>
+                <h1>{code.title}</h1>
+                <p>{code.content}</p>
+              </div>
+            ))
+          ) }
         </div>
       }
     </div>
