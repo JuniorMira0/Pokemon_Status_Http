@@ -28,11 +28,11 @@ const Cards = () => {
             filterData.map((code) => (
             <ul>
                   <li>
-                    <a className="card">
+                    <div className="card">
                       <img src={`https://cdn.traction.one/pokedex/pokemon/${code.id}.png`} className="card__image" alt="" />
                       <div className="card__overlay">
                         <div className="card__header">
-                          <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+                          <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"></svg>
                           <img className="card__thumb" src={`https://cdn.traction.one/pokedex/pokemon/${code.id}.png`} alt="" />
                           <div className="card__header-text">
                             <h3 className="card__title">{code.title}</h3>
@@ -40,7 +40,7 @@ const Cards = () => {
                         </div>
                         <p className="card__description">{code.content}</p>
                       </div>
-                    </a>
+                    </div>
                   </li>
                 </ul>
             ))}
@@ -50,7 +50,7 @@ const Cards = () => {
             data.map((code) => (
             <ul>
                   <li>
-                    <a className="card">
+                    <div className="card">
                       <img src={`https://cdn.traction.one/pokedex/pokemon/${code.id}.png`} className="card__image" alt="" />
                       <div className="card__overlay">
                         <div className="card__header">
@@ -62,7 +62,7 @@ const Cards = () => {
                         </div>
                         <p className="card__description">{code.content}</p>
                       </div>
-                    </a>
+                    </div>
                   </li>
                 </ul>
             ))}
